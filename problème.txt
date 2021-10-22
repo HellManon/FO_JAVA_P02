@@ -1,0 +1,6 @@
+Exception in thread "main" java.io.FileNotFoundException: symptoms.txt (Le fichier spécifié est introuvable)
+
+
+
+
+utiliser maven ou graddle
