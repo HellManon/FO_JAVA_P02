@@ -1,6 +1,43 @@
+
+
+
+
+problème 1 : 
+imossible de lire le fichier symptoms.txt
 Exception in thread "main" java.io.FileNotFoundException: symptoms.txt (Le fichier spécifié est introuvable)
 
+résolution :
+redéfinition du chemin du fichier.
 
+problème 2 :
+ligne 26 cherche le mot rush
 
+résolution:
+remplcement du mot rush par rash
+ajout SYSO pour vérifier le comptage
+
+problème 3 :
+ligne 30 recherche du mot pupils et mauvaise argument utiliser
+il y a deux type pupils différent
+ 
+résolution :
+changement de l'argument contains par equals
+remplcement de pupils par dialated pupils
+ajout SYSO pour vérifier le comptage
+
+problème 4 : 
+suppression ligne 21 / inutile
+
+problème 5 :
+ligne 18, variable headcount en doublon ed la variable headacheCount ligne 8
+
+résolution:
+suprtession variable headCount et remplacement de la variable headCount par headacheCount ligne 23 et 24
+
+problème 6 :
+le fichier résult.out ne se créer pas
+
+résolution :
+ajout du chemin où le fichier doit être créé.
 
 utiliser maven ou graddle
