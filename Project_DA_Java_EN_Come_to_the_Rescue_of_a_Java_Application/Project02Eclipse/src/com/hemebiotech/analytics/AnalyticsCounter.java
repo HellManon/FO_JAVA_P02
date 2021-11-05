@@ -12,29 +12,36 @@ public class AnalyticsCounter {
 		String filepath = "C:\\Formation openclassrooms\\Développeur d'applications JAVA\\FO_JAVA_P02\\Project_DA_Java_EN_Come_to_the_Rescue_of_a_Java_Application\\Project02Eclipse\\src\\com\\hemebiotech\\analytics\\symptoms.txt";
 		ISymptomReader symptomReader = new ReadSymptomDataFromFile(filepath);
 		List<String> symptoms = symptomReader.GetSymptoms();
-		// déclarer la map treemap
+		
+		// declaration de la map
 		TreeMap<String, Integer> map = new TreeMap<>();
-
-		// faire la boucle de comptage
-		for (String symptom : symptoms) {
-
-			if (!map.containsKey(symptom)) {
-				map.merge(symptom, 1, Integer::sum);
-				// System.out.println(map);
-			} else {
-				int count = map.containsKey(symptom) ? map.get(symptom) : 0;
-				map.put(symptom, count + 1);
+		try {
+			//boucle de comptage
+			for (String symptom : symptoms) {
+				
+				if (!map.containsKey(symptom)) {
+					map.merge(symptom, 1, Integer::sum);
+				} else {
+					int count = map.containsKey(symptom) ? map.get(symptom) : 0;
+					map.put(symptom, count + 1);
+				}
 			}
+			System.out.println(map);
+		} catch (Exception e) {
+			System.out.println("Erreur d'execution de la boucle de comptage");
 		}
-		System.out.println(map);
 
-		// generate file result.out
-		FileWriter writer = new FileWriter("result.out");
-		for (Entry<String, Integer> mapentry : map.entrySet()) {
-			System.out.println("clé: " + mapentry.getKey() + " | valeur: " + mapentry.getValue());
-			writer.write(mapentry.getKey() +" " + mapentry.getValue() + "\n");
+		// generation du fichier result.out
+		try {
+			FileWriter writer = new FileWriter("result.out");
+			for (Entry<String, Integer> mapentry : map.entrySet()) {
+				System.out.println("clé: " + mapentry.getKey() + " | valeur: " + mapentry.getValue());
+				writer.write(mapentry.getKey() +" " + mapentry.getValue() + "\n");
+			}
+			writer.close();
+		} catch (Exception e) {
+			System.out.println("erreur lors de la creation du fichier result");
 		}
-		writer.close();
 	}
 
 	public static void main(String args[]) throws Exception {
