@@ -6,10 +6,6 @@ import java.util.Map.Entry;
 import java.util.TreeMap;
 
 public class AnalyticsCounter {
-	/*
-	 * private static int headacheCount = 0; private static int rashCount = 0;
-	 * private static int pupilCount = 0;
-	 */
 
 	public void start() throws Exception {
 
@@ -32,16 +28,8 @@ public class AnalyticsCounter {
 		}
 		System.out.println(map);
 
-
 		// generate file result.out
 		FileWriter writer = new FileWriter("result.out");
-		// writer.write("headache: " + headacheCount + "\n");
-		// writer.write("rash: " + rashCount + "\n");
-		// writer.write("dialated pupils: " + pupilCount + "\n");
-		/*
-		 * for (int i = 0; i <map.size(); i++) { writer.write(map.ceilingKey(filepath));
-		 * }
-		 */
 		for (Entry<String, Integer> mapentry : map.entrySet()) {
 			System.out.println("clé: " + mapentry.getKey() + " | valeur: " + mapentry.getValue());
 			writer.write(mapentry.getKey() +" " + mapentry.getValue() + "\n");
