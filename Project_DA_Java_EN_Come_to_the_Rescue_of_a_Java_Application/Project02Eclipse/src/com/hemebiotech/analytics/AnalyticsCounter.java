@@ -16,9 +16,9 @@ public class AnalyticsCounter {
 
 	public void start() {
 
-		String filepath = "C:\\Formation openclassrooms\\Développeur d'applications JAVA\\FO_JAVA_P02\\Project_DA_Java_EN_Come_to_the_Rescue_of_a_Java_Application\\Project02Eclipse\\src\\com\\hemebiotech\\analytics\\symptoms.txt";
-		ISymptomReader symptomReader = new ReadSymptomDataFromFile(filepath);
-		List<String> symptoms = symptomReader.GetSymptoms();
+		String filePath = "Project02Eclipse\\src\\com\\hemebiotech\\analytics\\symptoms.txt";
+		ISymptomReader symptomReader = new ReadSymptomDataFromFile(filePath);
+		List<String> symptoms = symptomReader.getSymptoms();
 
 		Map<String, Integer> countSymptoms = countSymptoms(symptoms);
 		writeResult(countSymptoms);
@@ -32,8 +32,8 @@ public class AnalyticsCounter {
 	 */
 	private void writeResult(Map<String, Integer> countSymptoms) {
 		try (FileWriter writer = new FileWriter("result.out")) {
-			for (Entry<String, Integer> mapentry : countSymptoms.entrySet()) {
-				writer.write(mapentry.getKey() + "=" + mapentry.getValue() + "\n");
+			for (Entry<String, Integer> mapEntry : countSymptoms.entrySet()) {
+				writer.write(mapEntry.getKey() + "=" + mapEntry.getValue() + "\n");
 			}
 		} catch (Exception e) {
 			System.out.println("erreur lors de la creation du fichier result");
@@ -57,12 +57,13 @@ public class AnalyticsCounter {
 				countSymptoms.put(symptom, count + 1);
 			}
 		}
+		System.out.println("end");
 		return countSymptoms;
 	}
 
 	public static void main(String args[]) throws Exception {
 		AnalyticsCounter analyticsCouter = new AnalyticsCounter();
 		analyticsCouter.start();
-
+		System.out.println("start");
 	}
 }

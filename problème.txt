@@ -40,4 +40,3 @@ le fichier résult.out ne se créer pas
 résolution :
 ajout du chemin où le fichier doit être créé.
 
-utiliser maven ou graddle
