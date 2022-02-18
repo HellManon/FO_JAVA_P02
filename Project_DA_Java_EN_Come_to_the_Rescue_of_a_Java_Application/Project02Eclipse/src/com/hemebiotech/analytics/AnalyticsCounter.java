@@ -64,6 +64,5 @@ public class AnalyticsCounter {
 	public static void main(String args[]) throws Exception {
 		AnalyticsCounter analyticsCouter = new AnalyticsCounter();
 		analyticsCouter.start();
-		System.out.println("start");
 	}
 }
